@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página HTML 2</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1 id="texto">Klebson Tattoo INK</h1>
+
+    <nav id="nav">
+        <a href="#">
+            <span>Tatuador</span>
+            <img src="./img/imagem-01.jpg"/>
+        </a>
+        
+        <a href="#">
+            <span>Floral</span>
+            <img src="./img/imagem-02.jpg" />
+        </a>
+        
+        <a href="#">
+            <span>Delicada</span>
+            <img src="./img/imagem-03.jpg" />
+        </a>
+        
+        <a href="#">
+            <span>Fine-Line</span>
+            <img src="./img/imagem-04.jpg" />
+        </a>
+        
+        <a href="#">
+            <span>BlackWork</span>
+            <img src="./img/imagem-05.jpg" />
+        </a>
+
+        <section>
+            <div>
+                <h2 id="texto2">Click na logo para retornar</h2>
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://klebsontattooink.vercel.app/" title="Click aqui para retornar">
+                            <img src="./img/pagina-2.png" alt="Página 1" />
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+        </section>
+
+    </nav>
+
+    
+
+    <audio class="audio" src="./music/in-the-end.mp3" autoplay></audio>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('click', function() {
+            const audioElement = document.querySelector('.audio');
+
+            if (audioElement.paused) {
+                audioElement.play();
+            } else {
+                audioElement.pause();
+            }
+        })
+    </script>
+
+    <script src="script.js"></script>
+    
+    <script>
+        const nav = document.getElementById("nav");
+
+        for (const link of nav.getElementsByTagName("a")) {  
+            link.onmousemove = e => {
+                const rect = link.getBoundingClientRect();
+                const img = link.querySelector("img");
+
+                img.style.left = `${e.clientX - rect.left}px`;
+                img.style.top = `${e.clientY - rect.top}px`;
+            };
+        }
+
+        window.onmousemove = e => {
+            const percent = e.clientY / window.innerHeight;
+
+            nav.animate(
+                {
+                    transform: `translateY(${percent * nav.offsetHeight * -1}px)`
+                },
+                {
+                    fill: "forwards",
+                    duration: 4000
+                }
+            );
+        };
+
+    </script>
+
+    <footer class="footer">
+        &copy; 2023 "In The End" (INSTRUMENTAL) Linkin Park Cinematic Cover / Produced by Tommee Profitt - Todos os direitos reservados - Página em construção
+    </footer>
+
+</body>
+</html>
