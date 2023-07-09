@@ -134,7 +134,3 @@ section {
     width: 100%;
 }
 
-section > div {
-    display: flex;
-    align-items: center;
-}
